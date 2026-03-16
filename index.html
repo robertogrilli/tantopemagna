@@ -104,11 +104,19 @@
     /* ===========================
        LANGUAGE TOGGLE
     =========================== */
-    [data-lang="en"] { display: none; }
-    body.lang-en [data-lang="it"] { display: none; }
-    body.lang-en [data-lang="en"] { display: inline; }
-    body.lang-en [data-lang-block="en"] { display: block !important; }
+    /* Default: show IT, hide EN */
+    [data-lang="en"] { display: none !important; }
+    [data-lang="it"] { display: inline !important; }
+
+    /* EN active: show EN, hide IT */
+    body.lang-en [data-lang="it"] { display: none !important; }
+    body.lang-en [data-lang="en"] { display: inline !important; }
+
+    /* Block-level overrides */
+    [data-lang-block="en"] { display: none !important; }
+    [data-lang-block="it"] { display: block !important; }
     body.lang-en [data-lang-block="it"] { display: none !important; }
+    body.lang-en [data-lang-block="en"] { display: block !important; }
 
     /* ===========================
        NAVBAR
@@ -1268,6 +1276,7 @@
       #storia { grid-template-columns: 1fr; gap: 48px; }
       .storia-right { order: -1; }
       .storia-img-float { bottom: -20px; left: -16px; width: 45%; }
+      .storia-year { display: none; }
       .reviews-grid { grid-template-columns: 1fr; gap: 2px; }
       .tourist-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
       .contatti-top { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -1289,6 +1298,9 @@
       body { padding-bottom: 60px; }
       .modal-box { max-width: 100%; }
       .storia-stats { grid-template-columns: 1fr 1fr; }
+      .storia-year { display: none; }
+      .storia-img-float { display: none; }
+      .storia-img-main { aspect-ratio: 4/3; }
     }
 
     /* ===========================
@@ -1916,7 +1928,7 @@
         desc_it: "Riso al sugo fritto con cuore filante di mozzarella. Il nome viene dal filo di formaggio — come un telefono antico.",
         desc_en: "Fried rice with tomato sauce and melted mozzarella heart. The name comes from the cheese string — like an old telephone.",
         price: 7,
-        image: "https://images.unsplash.com/photo-1551024739-78a9b6e84dce?w=800&q=80",
+        image: "https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=800&q=80",
         allergens: ["glutine", "latticini", "uova"]
       },
       // PRIMI
@@ -2195,10 +2207,194 @@
     document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
 
     // ========================
+    // COOKIE BANNER
+    // ========================
+    function showCookieBanner() {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+    function hideCookieBanner() {
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+    function acceptCookies() {
+      localStorage.setItem('tpm_cookie_consent', 'accepted');
+      hideCookieBanner();
+      // GA already loaded — no action needed
+    }
+    function rejectCookies() {
+      localStorage.setItem('tpm_cookie_consent', 'rejected');
+      hideCookieBanner();
+      // Optionally: disable GA here
+      window['ga-disable-GA_MEASUREMENT_ID'] = true;
+    }
+    function openPrivacy() {
+      document.getElementById('privacy-modal').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    function closePrivacy() {
+      document.getElementById('privacy-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    // Show banner if no consent stored
+    if (!localStorage.getItem('tpm_cookie_consent')) {
+      setTimeout(showCookieBanner, 1200);
+    }
+
+    // ========================
     // INIT
     // ========================
     renderMenu('tutti');
   </script>
+
+  <!-- ===========================
+       COOKIE BANNER
+  =========================== -->
+  <div id="cookie-banner" style="
+    display:none;
+    position:fixed;
+    bottom:0;left:0;right:0;
+    z-index:8000;
+    background:var(--nero);
+    border-top:2px solid var(--terracotta);
+    padding:20px 24px;
+    font-family:var(--font-body);
+  ">
+    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+      <p style="font-size:13px;font-weight:300;color:rgba(245,240,232,0.8);line-height:1.6;max-width:700px;">
+        <span data-lang="it">🍪 Questo sito utilizza cookie tecnici necessari al funzionamento e, con il tuo consenso, cookie analitici (Google Analytics) per migliorare l'esperienza. Consulta la nostra <a href="#" onclick="openPrivacy();return false;" style="color:var(--terracotta-light);text-decoration:underline;">Privacy Policy</a>.</span>
+        <span data-lang="en">🍪 This site uses essential technical cookies and, with your consent, analytics cookies (Google Analytics) to improve your experience. Read our <a href="#" onclick="openPrivacy();return false;" style="color:var(--terracotta-light);text-decoration:underline;">Privacy Policy</a>.</span>
+      </p>
+      <div style="display:flex;gap:10px;flex-shrink:0;">
+        <button onclick="rejectCookies()" style="
+          font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;
+          background:transparent;border:1px solid rgba(245,240,232,0.3);color:rgba(245,240,232,0.6);
+          padding:10px 18px;cursor:pointer;transition:all 0.2s;
+        " onmouseover="this.style.borderColor='rgba(245,240,232,0.7)';this.style.color='rgba(245,240,232,0.9)'"
+           onmouseout="this.style.borderColor='rgba(245,240,232,0.3)';this.style.color='rgba(245,240,232,0.6)'">
+          <span data-lang="it">Solo necessari</span><span data-lang="en">Necessary only</span>
+        </button>
+        <button onclick="acceptCookies()" style="
+          font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;
+          background:var(--terracotta);border:1px solid var(--terracotta);color:white;
+          padding:10px 18px;cursor:pointer;transition:all 0.2s;
+        " onmouseover="this.style.background='var(--terracotta-dark)'"
+           onmouseout="this.style.background='var(--terracotta)'">
+          <span data-lang="it">Accetta tutti</span><span data-lang="en">Accept all</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===========================
+       PRIVACY POLICY MODAL
+  =========================== -->
+  <div id="privacy-modal" style="
+    display:none;
+    position:fixed;inset:0;z-index:9000;
+    background:rgba(26,20,16,0.85);
+    overflow-y:auto;
+    padding:40px 20px;
+  " onclick="if(event.target===this)closePrivacy()">
+    <div style="
+      max-width:760px;margin:0 auto;
+      background:var(--cream);
+      padding:48px 40px;
+      position:relative;
+      font-family:var(--font-body);
+    ">
+      <button onclick="closePrivacy()" style="
+        position:absolute;top:20px;right:20px;
+        background:none;border:1px solid rgba(26,20,16,0.2);
+        width:36px;height:36px;cursor:pointer;
+        display:flex;align-items:center;justify-content:center;
+        transition:all 0.2s;
+      " onmouseover="this.style.background='var(--terracotta)';this.querySelector('svg').style.stroke='white'"
+         onmouseout="this.style.background='none';this.querySelector('svg').style.stroke='currentColor'">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <!-- IT version -->
+      <div data-lang-block="it">
+        <p style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--terracotta);margin-bottom:12px;">Tanto pè Magnà</p>
+        <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);font-weight:900;text-transform:uppercase;line-height:0.95;margin-bottom:32px;color:var(--nero);">Privacy Policy &<br><span style="font-family:var(--font-serif);font-style:italic;color:var(--terracotta);">Cookie Policy</span></h2>
+
+        <div style="font-size:14px;font-weight:300;line-height:1.8;color:var(--nero-soft);">
+
+          <h3 style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--nero);margin:24px 0 8px;">1. Titolare del Trattamento</h3>
+          <p>Tanto pè Magnà — EREDI DI SILVESTRI PAOLA<br>Via Giustino de Jacobis 9/15, 00154 Roma<br>P.IVA: 15039111008<br>Tel: <a href="tel:+390651607422" style="color:var(--terracotta);">06 5160 7422</a></p>
+
+          <h3 style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--nero);margin:24px 0 8px;">2. Dati Raccolti</h3>
+          <p>Questo sito raccoglie esclusivamente dati di navigazione anonimi (indirizzo IP, pagine visitate, durata della visita) tramite Google Analytics 4, attivato solo previo consenso dell'utente. Non raccogliamo dati personali identificativi tramite form o registrazione.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--nero);margin:24px 0 8px;">3. Cookie Utilizzati</h3>
+          <p><strong>Cookie tecnici (sempre attivi):</strong> Necessari al funzionamento del sito — preferenza lingua, consenso cookie. Non richiedono consenso ai sensi dell'art. 122 Codice Privacy.</p>
+          <p style="margin-top:8px;"><strong>Cookie analitici (previo consenso):</strong> Google Analytics 4 (GA4) — analisi statistica anonima del traffico. Dati trattati da Google LLC negli USA con garanzie Standard Contractual Clauses. Puoi disabilitarli installando il <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" style="color:var(--terracotta);">Google Analytics Opt-out Browser Add-on</a>.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--nero);margin:24px 0 8px;">4. Base Giuridica</h3>
+          <p>Il trattamento dei dati analitici si basa sul tuo consenso esplicito (art. 6(1)(a) GDPR), revocabile in qualsiasi momento tramite il banner cookie o scrivendo al titolare.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--nero);margin:24px 0 8px;">5. Conservazione</h3>
+          <p>I dati di Google Analytics vengono conservati per 14 mesi dalla raccolta, dopodiché vengono eliminati automaticamente.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--nero);margin:24px 0 8px;">6. Diritti dell'Utente</h3>
+          <p>Ai sensi degli artt. 15-22 GDPR hai diritto di: accedere ai tuoi dati, rettificarli, cancellarli, limitarne il trattamento, portarli, opporti al trattamento e revocare il consenso. Puoi esercitare questi diritti scrivendo a: <a href="tel:+390651607422" style="color:var(--terracotta);">06 5160 7422</a>. Hai inoltre il diritto di proporre reclamo al Garante per la protezione dei dati personali (www.garanteprivacy.it).</p>
+
+          <h3 style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--nero);margin:24px 0 8px;">7. Link Esterni</h3>
+          <p>Il sito contiene link a servizi di terze parti (Facebook, Google Maps, TripAdvisor). Questi servizi hanno proprie privacy policy di cui Tanto pè Magnà non è responsabile.</p>
+
+          <p style="margin-top:28px;font-size:12px;color:var(--warm-gray);">Ultimo aggiornamento: Marzo 2025</p>
+
+          <div style="margin-top:28px;display:flex;gap:10px;flex-wrap:wrap;">
+            <button onclick="rejectCookies();closePrivacy()" style="font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;background:transparent;border:1px solid rgba(26,20,16,0.25);color:var(--warm-gray);padding:10px 18px;cursor:pointer;">Solo necessari</button>
+            <button onclick="acceptCookies();closePrivacy()" style="font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;background:var(--terracotta);border:1px solid var(--terracotta);color:white;padding:10px 18px;cursor:pointer;">Accetta tutti</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EN version -->
+      <div data-lang-block="en">
+        <p style="font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--terracotta);margin-bottom:12px;">Tanto pè Magnà</p>
+        <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);font-weight:900;text-transform:uppercase;line-height:0.95;margin-bottom:32px;color:var(--nero);">Privacy Policy &<br><span style="font-family:var(--font-serif);font-style:italic;color:var(--terracotta);">Cookie Policy</span></h2>
+
+        <div style="font-size:14px;font-weight:300;line-height:1.8;color:var(--nero-soft);">
+
+          <h3 style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--nero);margin:24px 0 8px;">1. Data Controller</h3>
+          <p>Tanto pè Magnà — EREDI DI SILVESTRI PAOLA<br>Via Giustino de Jacobis 9/15, 00154 Rome, Italy<br>VAT: 15039111008<br>Tel: <a href="tel:+390651607422" style="color:var(--terracotta);">+39 06 5160 7422</a></p>
+
+          <h3 style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--nero);margin:24px 0 8px;">2. Data Collected</h3>
+          <p>This website collects only anonymous browsing data (IP address, pages visited, visit duration) via Google Analytics 4, activated only upon user consent. We do not collect personally identifiable information via forms or registration.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--nero);margin:24px 0 8px;">3. Cookies Used</h3>
+          <p><strong>Technical cookies (always active):</strong> Required for site functionality — language preference, cookie consent. No consent required under Art. 122 Italian Privacy Code.</p>
+          <p style="margin-top:8px;"><strong>Analytics cookies (with consent):</strong> Google Analytics 4 (GA4) — anonymous statistical traffic analysis. Data processed by Google LLC in the US under Standard Contractual Clauses. You can disable them via the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" style="color:var(--terracotta);">Google Analytics Opt-out Browser Add-on</a>.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--nero);margin:24px 0 8px;">4. Legal Basis</h3>
+          <p>Analytics data processing is based on your explicit consent (Art. 6(1)(a) GDPR), which can be withdrawn at any time via the cookie banner or by contacting us.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--nero);margin:24px 0 8px;">5. Retention</h3>
+          <p>Google Analytics data is retained for 14 months from collection, after which it is automatically deleted.</p>
+
+          <h3 style="font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--nero);margin:24px 0 8px;">6. Your Rights</h3>
+          <p>Under Arts. 15-22 GDPR you have the right to: access, rectify, erase, restrict, port your data, object to processing, and withdraw consent. Contact us at: <a href="tel:+390651607422" style="color:var(--terracotta);">+39 06 5160 7422</a>. You may also lodge a complaint with the Italian Data Protection Authority (www.garanteprivacy.it).</p>
+
+          <p style="margin-top:28px;font-size:12px;color:var(--warm-gray);">Last updated: March 2025</p>
+
+          <div style="margin-top:28px;display:flex;gap:10px;flex-wrap:wrap;">
+            <button onclick="rejectCookies();closePrivacy()" style="font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;background:transparent;border:1px solid rgba(26,20,16,0.25);color:var(--warm-gray);padding:10px 18px;cursor:pointer;">Necessary only</button>
+            <button onclick="acceptCookies();closePrivacy()" style="font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;background:var(--terracotta);border:1px solid var(--terracotta);color:white;padding:10px 18px;cursor:pointer;">Accept all</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer privacy link -->
+  <div style="background:var(--nero);text-align:center;padding:12px;border-top:1px solid rgba(245,240,232,0.06);">
+    <a href="#" onclick="openPrivacy();return false;" style="font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.3);transition:color 0.2s;" onmouseover="this.style.color='var(--terracotta-light)'" onmouseout="this.style.color='rgba(245,240,232,0.3)'">
+      <span data-lang="it">Privacy Policy &amp; Cookie</span><span data-lang="en">Privacy Policy &amp; Cookies</span>
+    </a>
+    <span style="color:rgba(245,240,232,0.15);margin:0 12px;">·</span>
+    <span style="font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.2);">© 2025 Tanto pè Magnà</span>
+  </div>
 
 </body>
 </html>
