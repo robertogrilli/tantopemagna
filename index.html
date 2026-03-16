@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tanto pè Magnà — Cucina Romana | Garbatella, Roma</title>
+  <meta name="description" content="La vera cucina casareccia romana nel cuore della Garbatella. Tonnarelli cacio e pepe, carbonara, amatriciana. Porzioni generose, prezzi onesti. Prenota al 06 5160 7422." />
+  <meta property="og:title" content="Tanto pè Magnà — Cucina Romana | Garbatella, Roma" />
+  <meta property="og:description" content="La vera cucina casareccia romana nel cuore della Garbatella. Come a casa di nonna, ma meglio." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200" />
+  <meta property="og:url" content="https://tantopemagna.github.io" />
+  <link rel="canonical" href="https://tantopemagna.github.io" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600;1,700&family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Tanto pè Magnà",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Giustino de Jacobis 9/15",
+      "addressLocality": "Roma",
+      "postalCode": "00154",
+      "addressRegion": "Lazio",
+      "addressCountry": "IT"
+    },
+    "telephone": "+390651607422",
+    "openingHoursSpecification": [
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"12:45","closes":"14:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"19:45","closes":"22:30"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday"],"opens":"12:45","closes":"14:30"}
+    ],
+    "servesCuisine": "Roman Italian",
+    "priceRange": "€€",
+    "aggregateRating": {"@type":"AggregateRating","ratingValue":"4.2","reviewCount":"5556"},
+    "neighborhood": "Garbatella"
+  }
+  </script>
+
+  <!-- Google Analytics GA4 -->
+  <!-- Replace GA_MEASUREMENT_ID with actual Measurement ID (e.g. G-XXXXXXXXXX) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+
+  <style>
+    /* ===========================
+       CSS CUSTOM PROPERTIES
+    =========================== */
+    :root {
+      --cream: #F5F0E8;
+      --cream-dark: #EDE7D8;
+      --terracotta: #C4522A;
+      --terracotta-dark: #A8421E;
+      --terracotta-light: #D96D42;
+      --nero: #1A1410;
+      --nero-soft: #2C2018;
+      --gold: #C9A84C;
+      --gold-light: #E2C47A;
+      --warm-gray: #8A7B6A;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-serif: 'Cormorant Garamond', serif;
+      --font-body: 'Barlow', sans-serif;
+    }
+
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      background: var(--cream);
+      color: var(--nero);
+      font-family: var(--font-body);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===========================
+       NOISE TEXTURE OVERLAY
+    =========================== */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ===========================
+       LANGUAGE TOGGLE
+    =========================== */
+    [data-lang="en"] { display: none; }
+    body.lang-en [data-lang="it"] { display: none; }
+    body.lang-en [data-lang="en"] { display: inline; }
+    body.lang-en [data-lang-block="en"] { display: block !important; }
+    body.lang-en [data-lang-block="it"] { display: none !important; }
+
+    /* ===========================
+       NAVBAR
+    =========================== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.4s ease, padding 0.4s ease;
+    }
+    nav.scrolled {
+      background: var(--nero);
+      padding: 14px 40px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: var(--cream);
+      text-transform: uppercase;
+    }
+    .nav-logo span {
+      color: var(--terracotta-light);
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 26px;
+    }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--cream);
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .lang-toggle {
+      display: flex;
+      gap: 4px;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .lang-toggle button {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.6);
+      padding: 4px 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      letter-spacing: inherit;
+    }
+    .lang-toggle button.active {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+      color: white;
+    }
+    .nav-cta {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--terracotta);
+      color: white;
+      padding: 10px 22px;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s;
+    }
+    .nav-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--terracotta-dark);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .nav-cta:hover::before { transform: scaleX(1); }
+    .nav-cta span { position: relative; z-index: 1; }
+    .nav-cta:active { transform: scale(0.97); }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--cream);
+      transition: all 0.3s;
+    }
+
+    /* ===========================
+       HERO
+    =========================== */
+    #hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--nero);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1800&q=80') center center / cover no-repeat;
+      transform-origin: center;
+      animation: heroZoom 20s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.06); }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        170deg,
+        rgba(26,20,16,0.25) 0%,
+        rgba(26,20,16,0.55) 40%,
+        rgba(26,20,16,0.88) 100%
+      );
+    }
+    .hero-gradient-anim {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 10% 80%, rgba(196,82,42,0.15) 0%, transparent 60%);
+      animation: heroGradAnim 8s ease-in-out infinite alternate;
+    }
+    @keyframes heroGradAnim {
+      from { opacity: 0.6; transform: translateX(0px); }
+      to { opacity: 1; transform: translateX(30px); }
+    }
+
+    /* Big decorative year number */
+    .hero-year-bg {
+      position: absolute;
+      bottom: -20px;
+      right: -10px;
+      font-family: var(--font-display);
+      font-size: clamp(180px, 28vw, 420px);
+      font-weight: 900;
+      color: white;
+      opacity: 0.04;
+      line-height: 1;
+      pointer-events: none;
+      letter-spacing: -0.05em;
+    }
+
+    /* Geometric SVG ornament */
+    .hero-ornament {
+      position: absolute;
+      top: 15%;
+      right: 8%;
+      width: clamp(100px, 15vw, 200px);
+      opacity: 0.25;
+      animation: slowSpin 50s linear infinite;
+    }
+    @keyframes slowSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: clamp(80px, 10vw, 120px) clamp(24px, 5vw, 80px) clamp(60px, 8vw, 100px);
+      max-width: 900px;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .hero-eyebrow span {
+      display: inline-block;
+      transform: translateY(100%);
+      animation: lineReveal 0.7s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(64px, 13vw, 148px);
+      font-weight: 900;
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 28px;
+    }
+    .hero-title .line-wrap {
+      overflow: hidden;
+      display: block;
+    }
+    .hero-title .line {
+      display: block;
+      transform: translateY(105%);
+    }
+    .hero-title .line-1 { animation: lineReveal 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s forwards; }
+    .hero-title .line-2 { animation: lineReveal 0.8s cubic-bezier(0.16,1,0.3,1) 0.65s forwards; }
+    .hero-title .line-3 { animation: lineReveal 0.8s cubic-bezier(0.16,1,0.3,1) 0.8s forwards; }
+    .hero-title .accent {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 600;
+      color: var(--terracotta-light);
+      font-size: 1.08em;
+    }
+    @keyframes lineReveal {
+      to { transform: translateY(0); }
+    }
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: clamp(15px, 2vw, 18px);
+      font-weight: 300;
+      color: rgba(245,240,232,0.75);
+      line-height: 1.6;
+      max-width: 480px;
+      margin-bottom: 44px;
+      overflow: hidden;
+    }
+    .hero-sub span {
+      display: inline-block;
+      transform: translateY(100%);
+      animation: lineReveal 0.8s cubic-bezier(0.16,1,0.3,1) 1s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+    .hero-actions-inner {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      transform: translateY(60px);
+      opacity: 0;
+      animation: fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 1.1s forwards;
+    }
+    @keyframes fadeUp {
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background: var(--terracotta);
+      color: white;
+      padding: 16px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--terracotta-dark);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .btn-primary:hover::before { transform: scaleX(1); }
+    .btn-primary span { position: relative; z-index: 1; }
+    .btn-primary:active { transform: scale(0.97); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--cream);
+      padding: 15px 32px;
+      border: 1px solid rgba(245,240,232,0.4);
+      transition: all 0.3s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--cream);
+      background: rgba(245,240,232,0.08);
+    }
+    .btn-secondary:active { transform: scale(0.97); }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      right: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeUp 1s ease 1.5s forwards;
+    }
+    .hero-scroll span {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.5);
+      writing-mode: vertical-rl;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, rgba(245,240,232,0.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.5; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* ===========================
+       SECTION DIVIDER
+    =========================== */
+    .wave-divider {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .wave-divider svg { display: block; }
+
+    /* ===========================
+       SECTION COMMONS
+    =========================== */
+    section { position: relative; }
+    .section-eyebrow {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7vw, 84px);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--nero);
+      margin-bottom: 24px;
+    }
+    .section-title .serif-accent {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 600;
+      color: var(--terracotta);
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
+    .reveal-delay-5 { transition-delay: 0.40s; }
+    .reveal-delay-6 { transition-delay: 0.48s; }
+
+    /* ===========================
+       INTRO STRIP
+    =========================== */
+    #intro-strip {
+      background: var(--nero);
+      padding: 20px 0;
+      overflow: hidden;
+    }
+    .ticker-wrap {
+      display: flex;
+      gap: 0;
+      animation: ticker 25s linear infinite;
+      white-space: nowrap;
+    }
+    .ticker-item {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cream);
+      padding: 0 40px;
+      opacity: 0.6;
+    }
+    .ticker-item .dot {
+      color: var(--terracotta-light);
+      margin-right: 40px;
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ===========================
+       STORIA / STORY
+    =========================== */
+    #storia {
+      background: var(--cream);
+      padding: clamp(80px, 12vw, 140px) clamp(24px, 5vw, 80px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .storia-left { position: relative; }
+    .storia-year {
+      position: absolute;
+      font-family: var(--font-display);
+      font-size: clamp(120px, 18vw, 280px);
+      font-weight: 900;
+      color: var(--nero);
+      opacity: 0.05;
+      line-height: 1;
+      top: 50%;
+      left: -20px;
+      transform: translateY(-50%);
+      pointer-events: none;
+      letter-spacing: -0.05em;
+    }
+    .storia-text-block {
+      position: relative;
+      z-index: 2;
+    }
+    .storia-body {
+      font-family: var(--font-body);
+      font-size: clamp(15px, 1.5vw, 17px);
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--nero-soft);
+      margin-bottom: 20px;
+    }
+    .storia-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(22px, 3vw, 32px);
+      line-height: 1.3;
+      color: var(--terracotta);
+      border-left: 3px solid var(--terracotta);
+      padding-left: 24px;
+      margin: 32px 0;
+    }
+    .storia-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .stat-item {
+      border-top: 1px solid rgba(26,20,16,0.15);
+      padding-top: 16px;
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 900;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+    }
+    .storia-right { position: relative; }
+    .storia-img-main {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+    .storia-img-float {
+      position: absolute;
+      bottom: -40px;
+      left: -40px;
+      width: 55%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 6px solid var(--cream);
+      box-shadow: 0 20px 60px rgba(26,20,16,0.2);
+    }
+    .storia-gold-line {
+      position: absolute;
+      top: 30px;
+      right: -20px;
+      width: 3px;
+      height: 60%;
+      background: var(--gold);
+    }
+
+    /* ===========================
+       DIAGONAL DIVIDER
+    =========================== */
+    .diagonal-divider {
+      height: 80px;
+      background: var(--nero);
+      clip-path: polygon(0 0, 100% 40%, 100% 100%, 0 100%);
+    }
+    .diagonal-divider-inv {
+      height: 80px;
+      background: var(--cream);
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 60%);
+    }
+
+    /* ===========================
+       MENU
+    =========================== */
+    #menu {
+      background: var(--nero);
+      padding: clamp(60px, 10vw, 120px) clamp(24px, 5vw, 80px);
+    }
+    #menu .section-eyebrow { color: var(--gold); }
+    #menu .section-title { color: var(--cream); }
+    #menu .section-title .serif-accent { color: var(--terracotta-light); }
+    .menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .menu-subtitle {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.6);
+      max-width: 360px;
+    }
+    .menu-tabs {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .menu-tab {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 10px 20px;
+      background: transparent;
+      border: 1px solid rgba(245,240,232,0.2);
+      color: rgba(245,240,232,0.5);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .menu-tab:hover {
+      border-color: rgba(245,240,232,0.5);
+      color: rgba(245,240,232,0.8);
+    }
+    .menu-tab.active {
+      background: var(--terracotta);
+      border-color: var(--terracotta);
+      color: white;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .menu-card {
+      background: var(--nero-soft);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+    .menu-card:hover {
+      transform: translateY(-4px);
+      z-index: 2;
+    }
+    .menu-card:active { transform: scale(0.97); }
+    .menu-card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s ease, filter 0.4s ease;
+      filter: brightness(0.85) saturate(0.9);
+    }
+    .menu-card:hover .menu-card-img {
+      transform: scale(1.06);
+      filter: brightness(1) saturate(1.1);
+    }
+    .menu-card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(26,20,16,0.95) 0%, transparent 100%);
+      padding: 32px 20px 20px;
+    }
+    .menu-card-cat {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .menu-card-name {
+      font-family: var(--font-serif);
+      font-size: clamp(17px, 2vw, 21px);
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .menu-card-price {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--terracotta-light);
+    }
+    .menu-card-tap {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      background: rgba(245,240,232,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+      transition: background 0.2s;
+    }
+    .menu-card:hover .menu-card-tap { background: var(--terracotta); }
+    .menu-card-tap svg { width: 14px; height: 14px; fill: none; stroke: white; stroke-width: 2; }
+
+    /* ===========================
+       MENU MODAL
+    =========================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      background: rgba(26,20,16,0);
+      transition: background 0.4s ease;
+      pointer-events: none;
+    }
+    .modal-overlay.open {
+      background: rgba(26,20,16,0.75);
+      pointer-events: all;
+    }
+    .modal-box {
+      background: var(--cream);
+      width: 100%;
+      max-width: 560px;
+      max-height: 92svh;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+      position: relative;
+    }
+    .modal-overlay.open .modal-box {
+      transform: translateY(0);
+    }
+    .modal-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      background: rgba(26,20,16,0.6);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(8px);
+      transition: background 0.2s;
+    }
+    .modal-close:hover { background: var(--terracotta); }
+    .modal-close svg { width: 16px; height: 16px; stroke: white; stroke-width: 2; fill: none; }
+    .modal-body { padding: 28px 28px 40px; }
+    .modal-cat {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 8px;
+    }
+    .modal-title {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 700;
+      color: var(--nero);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .modal-desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--nero-soft);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .modal-price {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--terracotta);
+      margin-bottom: 20px;
+    }
+    .modal-allergens {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .allergen-tag {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      background: var(--cream-dark);
+      color: var(--warm-gray);
+      border: 1px solid rgba(138,123,106,0.3);
+    }
+
+    /* ===========================
+       RECENSIONI / REVIEWS
+    =========================== */
+    #recensioni {
+      background: var(--cream-dark);
+      padding: clamp(80px, 12vw, 140px) clamp(24px, 5vw, 80px);
+    }
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .review-card {
+      background: white;
+      padding: 32px 28px;
+      position: relative;
+    }
+    .review-stars {
+      font-size: 16px;
+      color: var(--gold);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .review-text {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(16px, 1.5vw, 19px);
+      line-height: 1.55;
+      color: var(--nero);
+      margin-bottom: 20px;
+    }
+    .review-author {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+    }
+    .review-quote-mark {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-family: var(--font-serif);
+      font-size: 80px;
+      color: var(--cream-dark);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    /* ===========================
+       ARE YOU A TOURIST
+    =========================== */
+    #tourist {
+      background: var(--nero);
+      padding: clamp(80px, 12vw, 140px) clamp(24px, 5vw, 80px);
+    }
+    #tourist .section-eyebrow { color: var(--gold); }
+    #tourist .section-title { color: var(--cream); }
+    .tourist-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .tourist-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .tourist-item {
+      text-align: center;
+    }
+    .tourist-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+    .tourist-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--terracotta-light);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .tourist-icon-anim svg {
+      opacity: 0;
+      transform: scale(0.7) rotate(-10deg);
+      transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .tourist-icon-anim.visible svg { opacity: 1; transform: scale(1) rotate(0deg); }
+    .tourist-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+    .tourist-text {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.65);
+      line-height: 1.65;
+    }
+
+    /* ===========================
+       ORARI & POSIZIONE
+    =========================== */
+    #posizione {
+      background: var(--cream);
+      padding: clamp(80px, 12vw, 140px) clamp(24px, 5vw, 80px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .orari-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 32px;
+    }
+    .orari-table tr {
+      border-bottom: 1px solid rgba(26,20,16,0.1);
+    }
+    .orari-table td {
+      padding: 12px 0;
+      font-family: var(--font-body);
+      font-size: 15px;
+    }
+    .orari-table td:first-child {
+      font-weight: 500;
+      color: var(--nero);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .orari-table td:last-child {
+      text-align: right;
+      color: var(--warm-gray);
+      font-weight: 300;
+    }
+    .orari-table tr.today td {
+      color: var(--terracotta);
+    }
+    .orari-table tr.today td:first-child {
+      color: var(--terracotta);
+    }
+    .orari-closed { color: var(--warm-gray) !important; }
+    .map-container {
+      margin-top: 32px;
+      width: 100%;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: relative;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(20%) contrast(1.1);
+    }
+    .address-block {
+      margin-top: 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .address-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--terracotta);
+      fill: none;
+      stroke-width: 2;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .address-text {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--nero-soft);
+      line-height: 1.6;
+    }
+    .address-text strong {
+      font-weight: 500;
+      font-family: var(--font-display);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .address-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      border-bottom: 1px solid var(--terracotta);
+      transition: opacity 0.2s;
+    }
+    .address-link:hover { opacity: 0.7; }
+    .info-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .chip {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid rgba(26,20,16,0.2);
+      color: var(--warm-gray);
+    }
+
+    /* ===========================
+       CONTATTI FOOTER
+    =========================== */
+    #contatti {
+      background: var(--nero-soft);
+      padding: clamp(60px, 10vw, 100px) clamp(24px, 5vw, 80px) clamp(40px, 6vw, 60px);
+    }
+    .contatti-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 60px;
+    }
+    .contatti-block-title {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .contatti-block-content {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.7);
+      line-height: 1.8;
+    }
+    .contatti-phone-link {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 900;
+      color: var(--cream);
+      letter-spacing: -0.01em;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+    .contatti-phone-link:hover { color: var(--terracotta-light); }
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(245,240,232,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.25s;
+    }
+    .social-link:hover {
+      border-color: var(--terracotta);
+      background: var(--terracotta);
+    }
+    .social-link svg {
+      width: 16px;
+      height: 16px;
+      fill: rgba(245,240,232,0.7);
+    }
+    .social-link:hover svg { fill: white; }
+    .footer-bottom {
+      border-top: 1px solid rgba(245,240,232,0.1);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+    .footer-logo span {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--terracotta-light);
+    }
+    .footer-copy {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(245,240,232,0.35);
+    }
+
+    /* ===========================
+       STICKY CALL BAR (Mobile)
+    =========================== */
+    .sticky-call-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 900;
+      background: var(--terracotta);
+      padding: 14px 24px;
+      text-align: center;
+    }
+    .sticky-call-bar a {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .sticky-call-bar svg {
+      width: 18px;
+      height: 18px;
+      stroke: white;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 900px) {
+      #storia { grid-template-columns: 1fr; gap: 48px; }
+      .storia-right { order: -1; }
+      .storia-img-float { bottom: -20px; left: -16px; width: 45%; }
+      .reviews-grid { grid-template-columns: 1fr; gap: 2px; }
+      .tourist-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .contatti-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      #posizione { grid-template-columns: 1fr; gap: 48px; }
+      .menu-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      nav.scrolled { padding: 12px 20px; }
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero-ornament { display: none; }
+      .hero-scroll { right: 20px; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .tourist-grid { grid-template-columns: 1fr; gap: 32px; }
+      .contatti-top { grid-template-columns: 1fr; }
+      .sticky-call-bar { display: block; }
+      body { padding-bottom: 60px; }
+      .modal-box { max-width: 100%; }
+      .storia-stats { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ===========================
+       UPGRADES PLACEHOLDERS
+    =========================== */
+    /* UPGRADE: Reservation form goes here */
+    /* UPGRADE: Chatbot widget script goes here */
+    /* UPGRADE: Email capture popup goes here */
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       NAVBAR
+  =========================== -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      Tanto <span>pè Magnà</span>
+    </div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#menu"><span data-lang="it">Menù</span><span data-lang="en">Menu</span></a></li>
+        <li><a href="#storia"><span data-lang="it">La Storia</span><span data-lang="en">Our Story</span></a></li>
+        <li><a href="#tourist"><span data-lang="it">Turisti</span><span data-lang="en">Tourists</span></a></li>
+        <li><a href="#posizione"><span data-lang="it">Dove Siamo</span><span data-lang="en">Location</span></a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="active" onclick="setLang('it')">IT</button>
+        <button onclick="setLang('en')">EN</button>
+      </div>
+      <a href="tel:+390651607422" class="nav-cta">
+        <span data-lang="it">Prenota</span><span data-lang="en">Reserve</span>
+      </a>
+      <div class="nav-hamburger" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" style="display:none; position:fixed; inset:0; background:var(--nero); z-index:1500; flex-direction:column; align-items:center; justify-content:center; gap:32px;">
+    <div style="position:absolute;top:20px;right:20px;cursor:pointer;" onclick="toggleMobileMenu()">
+      <svg width="24" height="24" stroke="white" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </div>
+    <a href="#menu" onclick="toggleMobileMenu()" style="font-family:var(--font-display);font-size:36px;font-weight:900;color:var(--cream);text-transform:uppercase;letter-spacing:0.05em;"><span data-lang="it">Menù</span><span data-lang="en">Menu</span></a>
+    <a href="#storia" onclick="toggleMobileMenu()" style="font-family:var(--font-display);font-size:36px;font-weight:900;color:var(--cream);text-transform:uppercase;letter-spacing:0.05em;"><span data-lang="it">La Storia</span><span data-lang="en">Our Story</span></a>
+    <a href="#tourist" onclick="toggleMobileMenu()" style="font-family:var(--font-display);font-size:36px;font-weight:900;color:var(--cream);text-transform:uppercase;letter-spacing:0.05em;"><span data-lang="it">Turisti</span><span data-lang="en">Tourists</span></a>
+    <a href="#posizione" onclick="toggleMobileMenu()" style="font-family:var(--font-display);font-size:36px;font-weight:900;color:var(--cream);text-transform:uppercase;letter-spacing:0.05em;"><span data-lang="it">Dove Siamo</span><span data-lang="en">Location</span></a>
+    <a href="tel:+390651607422" style="margin-top:24px;font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--terracotta-light);letter-spacing:0.15em;">☎ 06 5160 7422</a>
+  </div>
+
+  <!-- ===========================
+       HERO
+  =========================== -->
+  <section id="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-gradient-anim"></div>
+    <div class="hero-year-bg">1980</div>
+
+    <!-- Geometric SVG Ornament -->
+    <svg class="hero-ornament" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" stroke="white" stroke-width="1" fill="none"/>
+      <circle cx="100" cy="100" r="70" stroke="white" stroke-width="0.5" fill="none"/>
+      <circle cx="100" cy="100" r="50" stroke="white" stroke-width="1" fill="none"/>
+      <line x1="100" y1="10" x2="100" y2="190" stroke="white" stroke-width="0.5"/>
+      <line x1="10" y1="100" x2="190" y2="100" stroke="white" stroke-width="0.5"/>
+      <line x1="27" y1="27" x2="173" y2="173" stroke="white" stroke-width="0.5"/>
+      <line x1="173" y1="27" x2="27" y2="173" stroke="white" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="4" fill="white"/>
+    </svg>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span>
+          <span data-lang="it">⬥ Garbatella, Roma &nbsp;·&nbsp; Cucina Casareccia Romana</span>
+          <span data-lang="en">⬥ Garbatella, Roma &nbsp;·&nbsp; Authentic Roman Home Cooking</span>
+        </span>
+      </div>
+      <h1 class="hero-title">
+        <span class="line-wrap"><span class="line line-1">Tanto</span></span>
+        <span class="line-wrap"><span class="line line-2"><em class="accent">pè</em></span></span>
+        <span class="line-wrap"><span class="line line-3">Magnà</span></span>
+      </h1>
+      <p class="hero-sub">
+        <span>
+          <span data-lang="it">Come a casa di nonna — solo con le porzioni più grandi.</span>
+          <span data-lang="en">Like grandmother's kitchen — just with bigger portions.</span>
+        </span>
+      </p>
+      <div class="hero-actions">
+        <div class="hero-actions-inner">
+          <a href="tel:+390651607422" class="btn-primary">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 11 19.79 19.79 0 01.88 2.38 2 2 0 012.86.21h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.22 14l.7 2.92z"/></svg>
+            <span>
+              <span data-lang="it">Chiama per Prenotare</span>
+              <span data-lang="en">Call to Reserve</span>
+            </span>
+          </a>
+          <a href="#menu" class="btn-secondary">
+            <span data-lang="it">Vedi il Menù</span>
+            <span data-lang="en">See the Menu</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span data-lang="it">Scorri</span>
+      <span data-lang="en">Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       TICKER STRIP
+  =========================== -->
+  <div id="intro-strip" aria-hidden="true">
+    <div class="ticker-wrap">
+      <!-- IT -->
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Cucina Romana Autentica</span><span data-lang="en">Authentic Roman Cuisine</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Garbatella dal 1980</span><span data-lang="en">Garbatella Since 1980</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Porzioni Generose</span><span data-lang="en">Generous Portions</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Tonnarelli Cacio e Pepe</span><span data-lang="en">Tonnarelli Cacio e Pepe</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Rigatoni Carbonara</span><span data-lang="en">Rigatoni Carbonara</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Bucatini Amatriciana</span><span data-lang="en">Bucatini Amatriciana</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Coda alla Vaccinara</span><span data-lang="en">Coda alla Vaccinara</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Gestione Familiare</span><span data-lang="en">Family Run</span></span>
+      <!-- Duplicate for loop -->
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Cucina Romana Autentica</span><span data-lang="en">Authentic Roman Cuisine</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Garbatella dal 1980</span><span data-lang="en">Garbatella Since 1980</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Porzioni Generose</span><span data-lang="en">Generous Portions</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Tonnarelli Cacio e Pepe</span><span data-lang="en">Tonnarelli Cacio e Pepe</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Rigatoni Carbonara</span><span data-lang="en">Rigatoni Carbonara</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Bucatini Amatriciana</span><span data-lang="en">Bucatini Amatriciana</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Coda alla Vaccinara</span><span data-lang="en">Coda alla Vaccinara</span></span>
+      <span class="ticker-item"><span class="dot">⬥</span><span data-lang="it">Gestione Familiare</span><span data-lang="en">Family Run</span></span>
+    </div>
+  </div>
+
+  <!-- ===========================
+       STORIA / OUR STORY
+  =========================== -->
+  <section id="storia">
+    <div class="storia-left">
+      <div class="storia-year">1980</div>
+      <div class="storia-text-block">
+        <p class="section-eyebrow reveal">
+          <span data-lang="it">La nostra storia</span>
+          <span data-lang="en">Our Story</span>
+        </p>
+        <h2 class="section-title reveal reveal-delay-1">
+          <span data-lang="it">La Roma<br><span class="serif-accent">che non cambia</span></span>
+          <span data-lang="en">The Rome<br><span class="serif-accent">that never changes</span></span>
+        </h2>
+        <blockquote class="storia-quote reveal reveal-delay-2">
+          <span data-lang="it">"Piatti sinceri, porzioni abbondanti e un'anima popolare che non ha bisogno di artifici per conquistarti."</span>
+          <span data-lang="en">"Sincere dishes, generous portions, and a popular soul that needs no gimmicks to win you over."</span>
+        </blockquote>
+        <p class="storia-body reveal reveal-delay-3">
+          <span data-lang="it">Nel cuore del quartiere Garbatella — uno degli angoli più autentici di Roma — Tanto pè Magnà porta avanti una missione semplice: cucinare come si faceva una volta. Gestione familiare, prodotti di prima qualità, e una fedeltà assoluta alla tradizione culinaria romana.</span>
+          <span data-lang="en">In the heart of Garbatella — one of Rome's most authentic neighborhoods — Tanto pè Magnà carries forward a simple mission: cooking the way it used to be done. Family-run, first-quality ingredients, and absolute loyalty to Roman culinary tradition.</span>
+        </p>
+        <p class="storia-body reveal reveal-delay-4">
+          <span data-lang="it">Qui i piatti escono dalla cucina "carichi di condimento" — gli scarpettari sono i benvenuti. Il menù non cambia mai, perché non c'è niente da correggere: cacio e pepe, carbonara, amatriciana. La cucina dei nonni, fatta bene.</span>
+          <span data-lang="en">Here, dishes come out of the kitchen "loaded with sauce" — bread-dippers are more than welcome. The menu never changes, because there's nothing to fix: cacio e pepe, carbonara, amatriciana. Grandma's cooking, done right.</span>
+        </p>
+        <div class="storia-stats">
+          <div class="stat-item reveal reveal-delay-5">
+            <div class="stat-number" data-counter="5500" data-suffix="+">0</div>
+            <div class="stat-label"><span data-lang="it">Recensioni Online</span><span data-lang="en">Online Reviews</span></div>
+          </div>
+          <div class="stat-item reveal reveal-delay-6">
+            <div class="stat-number" data-counter="40" data-suffix="anni">0</div>
+            <div class="stat-label"><span data-lang="it">Di Tradizione</span><span data-lang="en">Of Tradition</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="storia-right reveal reveal-delay-2">
+      <div class="storia-gold-line"></div>
+      <img class="storia-img-main" loading="lazy"
+        src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80"
+        alt="Interno trattoria romana" />
+      <img class="storia-img-float" loading="lazy"
+        src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80"
+        alt="Piatti romani tradizionali" />
+    </div>
+  </section>
+
+  <!-- Diagonal divider -->
+  <div style="height:80px;background:var(--nero);clip-path:polygon(0 0,100% 40%,100% 100%,0 100%);"></div>
+
+  <!-- ===========================
+       MENU
+  =========================== -->
+  <section id="menu">
+    <div class="menu-header">
+      <div>
+        <p class="section-eyebrow reveal">
+          <span data-lang="it">Il nostro menù</span>
+          <span data-lang="en">Our Menu</span>
+        </p>
+        <h2 class="section-title reveal reveal-delay-1">
+          <span data-lang="it">La Cucina<br><span class="serif-accent">Romana Vera</span></span>
+          <span data-lang="en">Real<br><span class="serif-accent">Roman Cooking</span></span>
+        </h2>
+      </div>
+      <div>
+        <p class="menu-subtitle reveal reveal-delay-2">
+          <span data-lang="it">Porzioni generose, prodotti freschi, prezzi onesti. Come vuole la tradizione.</span>
+          <span data-lang="en">Generous portions, fresh ingredients, honest prices. As tradition demands.</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="menu-tabs" id="menuTabs">
+      <button class="menu-tab active" data-cat="tutti">
+        <span data-lang="it">Tutti</span><span data-lang="en">All</span>
+      </button>
+      <button class="menu-tab" data-cat="antipasti">Antipasti</button>
+      <button class="menu-tab" data-cat="primi">
+        <span data-lang="it">Primi</span><span data-lang="en">Pasta</span>
+      </button>
+      <button class="menu-tab" data-cat="secondi">
+        <span data-lang="it">Secondi</span><span data-lang="en">Mains</span>
+      </button>
+      <button class="menu-tab" data-cat="dolci">Dolci</button>
+    </div>
+
+    <div class="menu-grid" id="menuGrid"></div>
+  </section>
+
+  <!-- Diagonal divider inv -->
+  <div style="height:80px;background:var(--cream-dark);clip-path:polygon(0 0,100% 0,100% 100%,0 60%);"></div>
+
+  <!-- ===========================
+       RECENSIONI
+  =========================== -->
+  <section id="recensioni">
+    <div class="reviews-header">
+      <p class="section-eyebrow reveal">
+        <span data-lang="it">Cosa dicono di noi</span>
+        <span data-lang="en">What they say about us</span>
+      </p>
+      <h2 class="section-title reveal reveal-delay-1">
+        <span data-lang="it">Parole<br><span class="serif-accent">Vere</span></span>
+        <span data-lang="en">Real<br><span class="serif-accent">Words</span></span>
+      </h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-quote-mark">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          <span data-lang="it">"La migliore pasta che abbia mai mangiato. Ci penserò ancora a lungo a questo posto. I camerieri molto cortesi, prezzi ottimi. Un vero tesoro."</span>
+          <span data-lang="en">"Best pasta I ever eaten. I will think about this place for a good while. Waiters were very polite, prices very good. The restaurant is a gem."</span>
+        </p>
+        <div class="review-author">Maria L. · <span data-lang="it">Roma</span><span data-lang="en">Rome</span></div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-quote-mark">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          <span data-lang="it">"L'amatriciana è la mia pasta preferita al mondo, e questa non ha deluso! Era assolutamente deliziosa. Come essere dentro un film."</span>
+          <span data-lang="en">"Amatriciana is my favorite pasta in the world, and this one did not disappoint! Absolutely delicious. Like a movie scene."</span>
+        </p>
+        <div class="review-author">Ximena A.V. · <span data-lang="it">Locale Guide</span><span data-lang="en">Local Guide</span></div>
+      </div>
+      <div class="review-card reveal reveal-delay-3">
+        <div class="review-quote-mark">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          <span data-lang="it">"Cucina romana genuina e casalinga. Il posto è davvero familiare e accogliente, il cibo è semplicemente fantastico. Prenotate — si riempie subito."</span>
+          <span data-lang="en">"Genuine homemade Roman cuisine. The place is really familiar and cozy, food is just amazing. Get a reservation — it gets fully booked."</span>
+        </p>
+        <div class="review-author">Matteo M. · <span data-lang="it">Locale Guide</span><span data-lang="en">Local Guide</span></div>
+      </div>
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-quote-mark">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          <span data-lang="it">"Il cibo era ottimo, il valore eccezionale. Abbiamo speso circa 40-50 euro a persona ma abbiamo mangiato tre portate con il vino. Porzioni abbondanti."</span>
+          <span data-lang="en">"Food was great, value was amazing. We spent around 40-50 euros per person with three courses including wine. Portions were on the larger side."</span>
+        </p>
+        <div class="review-author">Zen K. · <span data-lang="it">Locale Guide</span><span data-lang="en">Local Guide</span></div>
+      </div>
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-quote-mark">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          <span data-lang="it">"Un piccolo angolo di Italia vera. Non sono un ristorante Michelin, ma questo è un posto autentico italiano. Non si può essere più italiani di così."</span>
+          <span data-lang="en">"Small little piece of real Italy. Not a Michelin restaurant, but this is an authentic Italian place. You can't get it more Italian than this."</span>
+        </p>
+        <div class="review-author">C.N. M.G. · <span data-lang="it">Locale Guide</span><span data-lang="en">Local Guide</span></div>
+      </div>
+      <div class="review-card reveal reveal-delay-3">
+        <div class="review-quote-mark">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          <span data-lang="it">"Pasta da sogno! Ho mangiato i tonnarelli cacio e pepe. Bellissimi e sostanziosi. Molto popolare, meglio prenotare."</span>
+          <span data-lang="en">"Pasta to die for! I ate the plain cheese with black pepper — gorgeous and filling. Very popular, you may have to book."</span>
+        </p>
+        <div class="review-author">Tracey J. · <span data-lang="it">Locale Guide</span><span data-lang="en">Local Guide</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       ARE YOU A TOURIST
+  =========================== -->
+  <section id="tourist">
+    <div class="tourist-header">
+      <p class="section-eyebrow reveal">
+        <span data-lang="it">Sei turista?</span>
+        <span data-lang="en">Are you a tourist?</span>
+      </p>
+      <h2 class="section-title reveal reveal-delay-1">
+        <span data-lang="it">La Guida<br><span class="serif-accent">Romana</span></span>
+        <span data-lang="en">The Roman<br><span class="serif-accent">Guide</span></span>
+      </h2>
+      <p style="font-family:var(--font-body);font-size:15px;font-weight:300;color:rgba(245,240,232,0.6);max-width:480px;margin:16px auto 0;line-height:1.7;" class="reveal reveal-delay-2">
+        <span data-lang="it">Benvenuto nella vera Roma. Ecco tutto quello che devi sapere per mangiare come un romano.</span>
+        <span data-lang="en">Welcome to the real Rome. Here's everything you need to know to eat like a Roman.</span>
+      </p>
+    </div>
+    <div class="tourist-grid">
+      <div class="tourist-item">
+        <div class="tourist-icon tourist-icon-anim reveal">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="26"/>
+            <polyline points="32,16 32,32 42,38"/>
+          </svg>
+        </div>
+        <div class="tourist-title reveal reveal-delay-1">
+          <span data-lang="it">Orari Italiani</span>
+          <span data-lang="en">Italian Hours</span>
+        </div>
+        <p class="tourist-text reveal reveal-delay-2">
+          <span data-lang="it">Pranzo dalle 13:00, cena dalle 20:00. Non presentarsi alle 17:00 e aspettarsi di mangiare.</span>
+          <span data-lang="en">Lunch from 1pm, dinner from 8pm. Don't show up at 5pm expecting food.</span>
+        </p>
+      </div>
+      <div class="tourist-item">
+        <div class="tourist-icon tourist-icon-anim reveal reveal-delay-1">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 32 Q20 16 32 16 Q44 16 52 32 Q44 48 32 48 Q20 48 12 32Z"/>
+            <circle cx="32" cy="32" r="6"/>
+          </svg>
+        </div>
+        <div class="tourist-title reveal reveal-delay-2">
+          <span data-lang="it">Il Coperto</span>
+          <span data-lang="en">The Cover Charge</span>
+        </div>
+        <p class="tourist-text reveal reveal-delay-3">
+          <span data-lang="it">Una piccola cifra per il pane e la tovaglia. È normale e legale — non è un'aggiunta furba.</span>
+          <span data-lang="en">A small charge for bread and tablecloth. It's normal and legal — not a sneaky add-on.</span>
+        </p>
+      </div>
+      <div class="tourist-item">
+        <div class="tourist-icon tourist-icon-anim reveal reveal-delay-2">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 48 Q32 20 48 48"/>
+            <path d="M10 40 Q32 8 54 40"/>
+            <line x1="32" y1="48" x2="32" y2="56"/>
+            <line x1="20" y1="56" x2="44" y2="56"/>
+          </svg>
+        </div>
+        <div class="tourist-title reveal reveal-delay-3">
+          <span data-lang="it">La Scarpetta</span>
+          <span data-lang="en">The Scarpetta</span>
+        </div>
+        <p class="tourist-text reveal reveal-delay-4">
+          <span data-lang="it">Usare il pane per raccogliere il sugo rimasto nel piatto. Non solo permesso — è un complimento allo chef.</span>
+          <span data-lang="en">Using bread to mop up the remaining sauce. Not just allowed — it's a compliment to the chef.</span>
+        </p>
+      </div>
+      <div class="tourist-item">
+        <div class="tourist-icon tourist-icon-anim reveal">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="20" width="36" height="28" rx="3"/>
+            <path d="M22 20 L22 14 Q22 10 26 10 L38 10 Q42 10 42 14 L42 20"/>
+            <line x1="32" y1="34" x2="32" y2="34" stroke-width="3"/>
+            <circle cx="32" cy="34" r="4"/>
+          </svg>
+        </div>
+        <div class="tourist-title reveal reveal-delay-1">
+          <span data-lang="it">Il Conto</span>
+          <span data-lang="en">The Bill</span>
+        </div>
+        <p class="tourist-text reveal reveal-delay-2">
+          <span data-lang="it">Non arriverà automaticamente. Devi chiedere: "Il conto, per favore." È così che funziona — rispettano il tuo tempo.</span>
+          <span data-lang="en">It won't come automatically. You must ask: "Il conto, per favore." That's how it works — they respect your time.</span>
+        </p>
+      </div>
+      <div class="tourist-item">
+        <div class="tourist-icon tourist-icon-anim reveal reveal-delay-1">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 44 Q22 20 32 20 Q42 20 42 44"/>
+            <path d="M18 44 Q18 16 32 16 Q46 16 46 44"/>
+            <ellipse cx="32" cy="44" rx="16" ry="4"/>
+            <path d="M46 38 Q52 38 52 44 L42 44"/>
+          </svg>
+        </div>
+        <div class="tourist-title reveal reveal-delay-2">
+          <span data-lang="it">Il Caffè</span>
+          <span data-lang="en">The Coffee</span>
+        </div>
+        <p class="tourist-text reveal reveal-delay-3">
+          <span data-lang="it">Arriva dopo il dessert, mai durante. Un espresso, in piedi o seduto — mai cappuccino dopo pranzo. Mai.</span>
+          <span data-lang="en">Comes after dessert, never during. One espresso, standing or sitting — never cappuccino after lunch. Never.</span>
+        </p>
+      </div>
+      <div class="tourist-item">
+        <div class="tourist-icon tourist-icon-anim reveal reveal-delay-2">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="32,12 38,26 54,26 42,36 46,50 32,42 18,50 22,36 10,26 26,26"/>
+          </svg>
+        </div>
+        <div class="tourist-title reveal reveal-delay-3">
+          <span data-lang="it">La Mancia</span>
+          <span data-lang="en">Tipping</span>
+        </div>
+        <p class="tourist-text reveal reveal-delay-4">
+          <span data-lang="it">Non obbligatoria, ma apprezzata. 1-2€ a persona se sei soddisfatto. Non aspettarti il servizio americano.</span>
+          <span data-lang="en">Not mandatory, but appreciated. €1-2 per person if satisfied. Don't expect American-style service.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       ORARI & POSIZIONE
+  =========================== -->
+  <section id="posizione">
+    <div>
+      <p class="section-eyebrow reveal">
+        <span data-lang="it">Vieni a trovarci</span>
+        <span data-lang="en">Find us</span>
+      </p>
+      <h2 class="section-title reveal reveal-delay-1">
+        <span data-lang="it">Orari &<br><span class="serif-accent">Posizione</span></span>
+        <span data-lang="en">Hours &<br><span class="serif-accent">Location</span></span>
+      </h2>
+      <table class="orari-table reveal reveal-delay-2">
+        <tr>
+          <td><span data-lang="it">Lunedì</span><span data-lang="en">Monday</span></td>
+          <td>12:45 – 14:30 &nbsp;|&nbsp; 19:45 – 22:30</td>
+        </tr>
+        <tr>
+          <td><span data-lang="it">Martedì</span><span data-lang="en">Tuesday</span></td>
+          <td>12:45 – 14:30 &nbsp;|&nbsp; 19:45 – 22:30</td>
+        </tr>
+        <tr>
+          <td><span data-lang="it">Mercoledì</span><span data-lang="en">Wednesday</span></td>
+          <td>12:45 – 14:30 &nbsp;|&nbsp; 19:45 – 22:30</td>
+        </tr>
+        <tr>
+          <td><span data-lang="it">Giovedì</span><span data-lang="en">Thursday</span></td>
+          <td>12:45 – 14:30 &nbsp;|&nbsp; 19:45 – 22:30</td>
+        </tr>
+        <tr>
+          <td><span data-lang="it">Venerdì</span><span data-lang="en">Friday</span></td>
+          <td>12:45 – 14:30 &nbsp;|&nbsp; 19:45 – 22:30</td>
+        </tr>
+        <tr>
+          <td><span data-lang="it">Sabato</span><span data-lang="en">Saturday</span></td>
+          <td>12:45 – 14:30 &nbsp;|&nbsp; 19:45 – 22:30</td>
+        </tr>
+        <tr>
+          <td><span data-lang="it">Domenica</span><span data-lang="en">Sunday</span></td>
+          <td>12:45 – 14:30 &nbsp;·&nbsp; <span class="orari-closed"><span data-lang="it">Sera chiuso</span><span data-lang="en">Evening closed</span></span></td>
+        </tr>
+      </table>
+      <div class="info-chips reveal reveal-delay-3">
+        <span class="chip"><span data-lang="it">Prenotazione consigliata</span><span data-lang="en">Booking recommended</span></span>
+        <span class="chip"><span data-lang="it">Posti all'aperto</span><span data-lang="en">Outdoor seating</span></span>
+        <span class="chip">Metro B → Garbatella</span>
+      </div>
+    </div>
+    <div>
+      <div class="address-block reveal">
+        <div class="address-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="address-text">
+          <strong><span data-lang="it">Indirizzo</span><span data-lang="en">Address</span></strong>
+          Via Giustino de Jacobis 9/15<br>
+          Garbatella, 00154 Roma
+          <a href="https://maps.google.com/?q=Tanto+pè+Magnà+Via+Giustino+de+Jacobis+9+Roma" target="_blank" rel="noopener noreferrer" class="address-link">
+            <span data-lang="it">Apri in Maps →</span>
+            <span data-lang="en">Open in Maps →</span>
+          </a>
+        </div>
+      </div>
+      <div class="map-container reveal reveal-delay-1">
+        <!-- MAPS: incollare qui URL embed da Google Maps del locale -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2971.3!2d12.4797!3d41.8648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13258ab7f0a4f965%3A0x3b27c5e9b8a12a3d!2sVia%20Giustino%20de%20Jacobis%2C%209%2C%2000154%20Roma%20RM%2C%20Italia!5e0!3m2!1sit!2sit!4v1620000000000!5m2!1sit!2sit"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Tanto pè Magnà — Google Maps">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===========================
+       CONTATTI / FOOTER
+  =========================== -->
+  <footer id="contatti">
+    <div class="contatti-top">
+      <div>
+        <p class="contatti-block-title"><span data-lang="it">Prenota un Tavolo</span><span data-lang="en">Reserve a Table</span></p>
+        <a href="tel:+390651607422" class="contatti-phone-link">06 5160 7422</a>
+        <a href="tel:+393312369758" class="contatti-block-content" style="display:block;color:rgba(245,240,232,0.5);font-size:13px;">331 236 9758</a>
+        <a href="tel:+390651607422" class="btn-primary" style="margin-top:20px;display:inline-flex;">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 11 19.79 19.79 0 01.88 2.38 2 2 0 012.86.21h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.22 14l.7 2.92z"/></svg>
+          <span><span data-lang="it">Chiama per Prenotare</span><span data-lang="en">Call to Reserve</span></span>
+        </a>
+      </div>
+      <div>
+        <p class="contatti-block-title"><span data-lang="it">Dove Siamo</span><span data-lang="en">Where We Are</span></p>
+        <div class="contatti-block-content">
+          Via Giustino de Jacobis, 9/15<br>
+          Garbatella — 00154 Roma<br><br>
+          <span data-lang="it">Metro B → Fermata Garbatella<br>15 minuti a piedi</span>
+          <span data-lang="en">Metro B → Garbatella Station<br>15 minutes on foot</span>
+        </div>
+      </div>
+      <div>
+        <p class="contatti-block-title"><span data-lang="it">Seguici</span><span data-lang="en">Follow Us</span></p>
+        <div class="contatti-block-content">
+          <span data-lang="it">Gestione familiare · Cucina casareccia<br>Prodotti di prima qualità</span>
+          <span data-lang="en">Family-run · Home cooking<br>First-quality ingredients</span>
+        </div>
+        <div class="social-links">
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/tantopemagnagarbatella/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <!-- Google Maps -->
+          <a href="https://maps.google.com/?q=Tanto+pè+Magnà+Roma+Garbatella" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Google Maps">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </a>
+          <!-- TripAdvisor icon placeholder -->
+          <a href="https://www.tripadvisor.com/Restaurant_Review-g187791-d1943151-Reviews-Tanto_pe_Magna-Rome_Lazio.html" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TripAdvisor">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><path d="M12 8l1.5 4.5L18 14l-3.5 3 1 5L12 20l-3.5 2 1-5L6 14l4.5-1.5z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-logo">Tanto <span>pè Magnà</span></div>
+      <div class="footer-copy">
+        <span data-lang="it">P.IVA 15039111008 · Via Giustino de Jacobis 9/15, Roma</span>
+        <span data-lang="en">VAT 15039111008 · Via Giustino de Jacobis 9/15, Rome</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile Call Bar -->
+  <div class="sticky-call-bar">
+    <a href="tel:+390651607422">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 11 19.79 19.79 0 01.88 2.38 2 2 0 012.86.21h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0121.22 14l.7 2.92z"/></svg>
+      <span data-lang="it">Chiama per Prenotare — 06 5160 7422</span>
+      <span data-lang="en">Call to Reserve — 06 5160 7422</span>
+    </a>
+  </div>
+
+  <!-- Menu Modal -->
+  <div class="modal-overlay" id="menuModal" role="dialog" aria-modal="true" aria-label="Dettaglio piatto">
+    <div class="modal-box" id="menuModalBox">
+      <img class="modal-img" id="modalImg" src="" alt="" loading="lazy" />
+      <button class="modal-close" id="modalClose" aria-label="Chiudi">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal-body">
+        <div class="modal-cat" id="modalCat"></div>
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <p class="modal-desc" id="modalDesc"></p>
+        <div class="modal-price" id="modalPrice"></div>
+        <div class="modal-allergens" id="modalAllergens"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===========================
+       JAVASCRIPT
+  =========================== -->
+  <script>
+    // ========================
+    // MENU DATA
+    // ========================
+    const menuData = [
+      // ANTIPASTI
+      {
+        id: "antipasto-bufala",
+        category: "antipasti",
+        name_it: "Antipasto di Bufala",
+        name_en: "Buffalo Mozzarella Platter",
+        desc_it: "Piatto abbondante con mozzarelline di bufala, ricotta fresca e caciottine. Un antipasto che vale il viaggio.",
+        desc_en: "Generous platter of buffalo mozzarella, fresh ricotta and caciotta cheese. An appetizer worth the trip.",
+        price: 9,
+        image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&q=80",
+        allergens: ["latticini"]
+      },
+      {
+        id: "carciofi-fritti",
+        category: "antipasti",
+        name_it: "Carciofi Fritti",
+        name_en: "Fried Artichokes",
+        desc_it: "Carciofi romani fritti in olio bollente fino a diventare croccanti e dorati. Un classico della cucina giudaico-romana.",
+        desc_en: "Roman artichokes fried in hot oil until crispy and golden. A classic of Judeo-Roman cuisine.",
+        price: 8,
+        image: "https://images.unsplash.com/photo-1604909052743-94e838986d24?w=800&q=80",
+        allergens: []
+      },
+      {
+        id: "supplì",
+        category: "antipasti",
+        name_it: "Supplì al Telefono",
+        name_en: "Roman Rice Balls",
+        desc_it: "Riso al sugo fritto con cuore filante di mozzarella. Il nome viene dal filo di formaggio — come un telefono antico.",
+        desc_en: "Fried rice with tomato sauce and melted mozzarella heart. The name comes from the cheese string — like an old telephone.",
+        price: 7,
+        image: "https://images.unsplash.com/photo-1551024739-78a9b6e84dce?w=800&q=80",
+        allergens: ["glutine", "latticini", "uova"]
+      },
+      // PRIMI
+      {
+        id: "cacio-e-pepe",
+        category: "primi",
+        name_it: "Tonnarelli Cacio e Pepe",
+        name_en: "Tonnarelli Cacio e Pepe",
+        desc_it: "Il piatto simbolo di Tanto pè Magnà. Tonnarelli freschi all'uovo, pecorino romano DOP, pepe nero macinato al momento. La migliore cacio e pepe di Roma, secondo i nostri clienti.",
+        desc_en: "The signature dish of Tanto pè Magnà. Fresh egg tonnarelli, DOP pecorino romano, freshly ground black pepper. The best cacio e pepe in Rome, according to our customers.",
+        price: 10,
+        image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&q=80",
+        allergens: ["glutine", "latticini", "uova"]
+      },
+      {
+        id: "carbonara",
+        category: "primi",
+        name_it: "Rigatoni alla Carbonara",
+        name_en: "Rigatoni alla Carbonara",
+        desc_it: "Rigatoni rigati, guanciale croccante, uova fresche, pecorino romano e pepe. Niente panna — mai. La vera carbonara romana.",
+        desc_en: "Ridged rigatoni, crispy guanciale, fresh eggs, pecorino romano and pepper. No cream — ever. The real Roman carbonara.",
+        price: 11,
+        image: "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=800&q=80",
+        allergens: ["glutine", "uova", "latticini"]
+      },
+      {
+        id: "amatriciana",
+        category: "primi",
+        name_it: "Bucatini all'Amatriciana",
+        name_en: "Bucatini all'Amatriciana",
+        desc_it: "Bucatini con sugo di pomodoro San Marzano, guanciale affumicato e pecorino romano. Abbondante di condimento, perfetto per la scarpetta.",
+        desc_en: "Bucatini with San Marzano tomato sauce, smoked guanciale and pecorino romano. Generously sauced, perfect for bread-mopping.",
+        price: 10,
+        image: "https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=800&q=80",
+        allergens: ["glutine", "latticini"]
+      },
+      {
+        id: "gricia",
+        category: "primi",
+        name_it: "Spaghetti alla Gricia",
+        name_en: "Spaghetti alla Gricia",
+        desc_it: "La carbonara prima delle uova. Spaghetti con guanciale croccante, pecorino romano e pepe nero. Semplice, potente, indimenticabile.",
+        desc_en: "Carbonara before eggs. Spaghetti with crispy guanciale, pecorino romano and black pepper. Simple, powerful, unforgettable.",
+        price: 10,
+        image: "https://images.unsplash.com/photo-1598866594230-a7c12756260f?w=800&q=80",
+        allergens: ["glutine", "latticini"]
+      },
+      {
+        id: "arrabbiata",
+        category: "primi",
+        name_it: "Penne all'Arrabbiata",
+        name_en: "Penne all'Arrabbiata",
+        desc_it: "Penne con sugo di pomodoro, aglio e peperoncino. Piccante quanto si deve, niente di più niente di meno.",
+        desc_en: "Penne with tomato sauce, garlic and chilli. As spicy as it should be, nothing more nothing less.",
+        price: 9,
+        image: "https://images.unsplash.com/photo-1606756790138-261d2b21cd75?w=800&q=80",
+        allergens: ["glutine"]
+      },
+      // SECONDI
+      {
+        id: "polpette",
+        category: "secondi",
+        name_it: "Polpette al Sugo",
+        name_en: "Meatballs in Tomato Sauce",
+        desc_it: "Polpette di manzo e maiale nel sugo della nonna. La specialità della casa raccomandata da tutti. Enormi, tenere, profumate.",
+        desc_en: "Beef and pork meatballs in grandma's tomato sauce. The house specialty recommended by everyone. Huge, tender, fragrant.",
+        price: 12,
+        image: "https://images.unsplash.com/photo-1529042410759-befb1204b468?w=800&q=80",
+        allergens: ["glutine", "uova"]
+      },
+      {
+        id: "vaccinara",
+        category: "secondi",
+        name_it: "Coda alla Vaccinara",
+        name_en: "Oxtail alla Vaccinara",
+        desc_it: "Il piatto più romano che esiste. Coda di bue brasata per ore con pomodoro, sedano e spezie. Una ricetta che viene dai rioni del Ghetto.",
+        desc_en: "The most Roman dish in existence. Oxtail braised for hours with tomato, celery and spices. A recipe from the Ghetto neighborhood.",
+        price: 14,
+        image: "https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80",
+        allergens: []
+      },
+      {
+        id: "saltimbocca",
+        category: "secondi",
+        name_it: "Saltimbocca alla Romana",
+        name_en: "Saltimbocca alla Romana",
+        desc_it: "Fettine di vitello con prosciutto crudo e salvia, cotti nel burro e vino bianco. Il nome dice tutto: saltano in bocca.",
+        desc_en: "Veal escalopes with prosciutto and sage, cooked in butter and white wine. The name says it all: they jump into your mouth.",
+        price: 13,
+        image: "https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&q=80",
+        allergens: ["latticini"]
+      },
+      {
+        id: "trippa",
+        category: "secondi",
+        name_it: "Trippa alla Romana",
+        name_en: "Tripe alla Romana",
+        desc_it: "Trippa di manzo in umido con pomodoro, mentuccia romana e pecorino. Un piatto di quinto quarto che divide: chi la ama, non se ne dimentica.",
+        desc_en: "Beef tripe braised with tomato, Roman mint and pecorino. A nose-to-tail dish that divides: those who love it, never forget it.",
+        price: 11,
+        image: "https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=80",
+        allergens: ["latticini"]
+      },
+      // DOLCI
+      {
+        id: "tiramisu",
+        category: "dolci",
+        name_it: "Tiramisù della Casa",
+        name_en: "House Tiramisù",
+        desc_it: "Fatto in casa ogni giorno. Savoiardi imbevuti di espresso, mascarpone, uova fresche e cacao amaro. Diverso da tutti gli altri — i clienti lo amano così.",
+        desc_en: "Homemade every day. Ladyfingers soaked in espresso, mascarpone, fresh eggs and bitter cocoa. Different from all others — customers love it just so.",
+        price: 5,
+        image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&q=80",
+        allergens: ["uova", "latticini", "glutine"]
+      },
+      {
+        id: "crostata",
+        category: "dolci",
+        name_it: "Crostata Artigianale",
+        name_en: "Artisan Crostata",
+        desc_it: "Frolla fatta in casa con ripieno di marmellata o cioccolato e pere, secondo disponibilità. Rustica, genuina, perfetta.",
+        desc_en: "Homemade shortcrust with jam or chocolate and pear filling, depending on availability. Rustic, genuine, perfect.",
+        price: 4,
+        image: "https://images.unsplash.com/photo-1519915028121-7d3463d20b13?w=800&q=80",
+        allergens: ["glutine", "uova", "latticini"]
+      },
+    ];
+
+    // ========================
+    // LANGUAGE TOGGLE
+    // ========================
+    let currentLang = 'it';
+    function setLang(lang) {
+      currentLang = lang;
+      document.body.classList.toggle('lang-en', lang === 'en');
+      document.querySelectorAll('.lang-toggle button').forEach((btn, i) => {
+        btn.classList.toggle('active', (i === 0 && lang === 'it') || (i === 1 && lang === 'en'));
+      });
+    }
+
+    // ========================
+    // NAV SCROLL
+    // ========================
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ========================
+    // MOBILE MENU
+    // ========================
+    function toggleMobileMenu() {
+      const m = document.getElementById('mobile-menu');
+      m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    // ========================
+    // RENDER MENU
+    // ========================
+    function renderMenu(cat = 'tutti') {
+      const grid = document.getElementById('menuGrid');
+      const items = cat === 'tutti' ? menuData : menuData.filter(d => d.category === cat);
+      grid.innerHTML = items.map((item, i) => `
+        <div class="menu-card reveal reveal-delay-${(i%6)+1}" data-id="${item.id}" onclick="openModal('${item.id}')">
+          <img class="menu-card-img" src="${item.image}" alt="${item.name_it}" loading="lazy" />
+          <div class="menu-card-overlay">
+            <div class="menu-card-cat">${catLabel(item.category)}</div>
+            <div class="menu-card-name">${item.name_it}</div>
+            <div class="menu-card-price">€${item.price}</div>
+          </div>
+          <div class="menu-card-tap">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </div>
+      `).join('');
+      // Re-observe new elements
+      grid.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+
+    function catLabel(cat) {
+      const labels = {
+        antipasti: 'Antipasto',
+        primi: 'Primo',
+        secondi: 'Secondo',
+        dolci: 'Dolce'
+      };
+      return labels[cat] || cat;
+    }
+
+    // Menu tabs
+    document.getElementById('menuTabs').addEventListener('click', e => {
+      const tab = e.target.closest('.menu-tab');
+      if (!tab) return;
+      document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      renderMenu(tab.dataset.cat);
+    });
+
+    // ========================
+    // MODAL
+    // ========================
+    function openModal(id) {
+      const item = menuData.find(d => d.id === id);
+      if (!item) return;
+      document.getElementById('modalImg').src = item.image;
+      document.getElementById('modalImg').alt = item.name_it;
+      document.getElementById('modalCat').textContent = catLabel(item.category).toUpperCase();
+      document.getElementById('modalTitle').textContent = currentLang === 'en' ? item.name_en : item.name_it;
+      document.getElementById('modalDesc').textContent = currentLang === 'en' ? item.desc_en : item.desc_it;
+      document.getElementById('modalPrice').textContent = `€${item.price}`;
+      document.getElementById('modalAllergens').innerHTML = item.allergens.map(a =>
+        `<span class="allergen-tag">${a}</span>`
+      ).join('');
+      document.getElementById('menuModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('menuModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('menuModal').addEventListener('click', e => {
+      if (e.target === document.getElementById('menuModal')) closeModal();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // ========================
+    // INTERSECTION OBSERVER
+    // ========================
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Animate icons
+          if (entry.target.classList.contains('tourist-icon-anim')) {
+            entry.target.querySelector('svg').style.opacity = '1';
+            entry.target.querySelector('svg').style.transform = 'scale(1) rotate(0deg)';
+          }
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ========================
+    // SCROLL COUNTER ANIMATION
+    // ========================
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.counter);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1800;
+      const start = performance.now();
+      function update(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const current = Math.round(ease * target);
+        el.textContent = current.toLocaleString('it-IT') + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    }
+
+    const counterObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.dataset.animated) {
+          entry.target.dataset.animated = 'true';
+          animateCounter(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observe(el));
+
+    // ========================
+    // INIT
+    // ========================
+    renderMenu('tutti');
+  </script>
+
+</body>
+</html>
